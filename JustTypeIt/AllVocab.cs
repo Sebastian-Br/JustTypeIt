@@ -70,7 +70,7 @@ namespace JustTypeIt
                     CurrentWord = HardWords[0];
                     return CurrentWord.OriginalWord;
                 }
-                else if (HardWords.Count > 1)
+                else if (HardWords.Count > 1 && (random.Next() % 2) == 0)
                 {
                     int index = random.Next(HardWords.Count);
                     CurrentWord = HardWords[index];
@@ -110,7 +110,11 @@ namespace JustTypeIt
                             Word newWord = new();
                             newWord.OriginalWord = match.Groups["word"].Value;
                             newWord.Definition = match.Groups["definition"].Value;
-                            newWord.Definition = newWord.Definition.Remove(newWord.Definition.Length - 1);
+                            char lastChar = newWord.Definition[newWord.Definition.Length - 1];
+                            if (!(Char.IsSeparator(lastChar) || Char.IsLetterOrDigit(lastChar)))
+                            {
+                                newWord.Definition = newWord.Definition.Remove(newWord.Definition.Length - 1);
+                            }
                             Words.Add(newWord);
                         }
                         else if(catchErrorMatch)

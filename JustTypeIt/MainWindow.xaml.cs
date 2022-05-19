@@ -64,6 +64,7 @@ namespace JustTypeIt
                         loadConfigButton.Visibility = Visibility.Collapsed;
                         MessageBox.Show("Parsing successful.", ":)");
                         WordTextBox.Text = allVocab.GetNextWord();
+                        AnswerTextBox.Text = "";
                     }
                 }
             }
@@ -91,7 +92,7 @@ namespace JustTypeIt
                         mediaPlayer.Open(new Uri("otlichnо.mp3", UriKind.Relative));
                         mediaPlayer.Play();
                         await Task.Delay(1000);
-
+                        AnswerTextBox.Text = "";
                         AnswerTextBox.IsReadOnly = false;
                         WordTextBox.Text = allVocab.GetNextWord();
                     }
