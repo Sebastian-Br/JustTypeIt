@@ -1,6 +1,6 @@
 # JustTypeIt
 
-This is an applicated designed to help language learners overcome the astronomical challenges inherent to finding the groundbreaking technology necessary
+This is an application designed to help language learners overcome the astronomical challenges inherent to finding the groundbreaking technology necessary
 to write down and check words. Yes. Me and NASA's top engineers worked tirelessly, which culminated in this masterpiece of UI design.
 <br>
 Jokes aside, I was just making my first training set of Russian vocabulary on Quizlet. The NEXT DAY, they decided to make their "write mode" a paid feature. For only 7.99€ a month, you can now access mankind's greatest invention (the string comparer).
