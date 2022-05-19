@@ -76,7 +76,7 @@ namespace JustTypeIt
 
         private async void AnswerTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter || e.Key == Key.Return)
+            if (e.Key == Key.Enter || e.Key == Key.Return)
             {
                 if (allVocab.Words.Count > 0)
                 {
@@ -95,6 +95,7 @@ namespace JustTypeIt
                         AnswerTextBox.Text = "";
                         AnswerTextBox.IsReadOnly = false;
                         WordTextBox.Text = allVocab.GetNextWord();
+                        AnswerTextBox.Background = new SolidColorBrush(Color.FromRgb(2, 43, 117));
                     }
                     else
                     { // incorrect

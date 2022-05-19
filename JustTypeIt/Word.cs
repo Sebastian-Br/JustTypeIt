@@ -10,7 +10,7 @@ namespace JustTypeIt
     {
         public Word()
         {
-            RecentErrorsMax = 4;
+            RecentErrorsMax = 3;
             OriginalWord = "";
             Definition = "";
             RecentErrors = 0;
@@ -25,25 +25,19 @@ namespace JustTypeIt
 
         public void AddError()
         {
-            if(RecentErrors > RecentErrorsMax)
+            RecentErrors += 2;
+            if (RecentErrors > RecentErrorsMax)
             {
                 RecentErrors = RecentErrorsMax;
-            }
-            else
-            {
-                RecentErrors += 2;
             }
         }
 
         public void AddSuccess()
         {
-            if (RecentErrors > 0)
+            RecentErrors--;
+            if (RecentErrors < 0)
             {
-                RecentErrors--;
-            }
-            else
-            {
-                return;
+                RecentErrors = 0;
             }
         }
     }
