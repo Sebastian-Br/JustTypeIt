@@ -33,7 +33,7 @@ namespace JustTypeIt
                 if(String.Equals(CurrentWord.Definition, studentAnswer, StringComparison.OrdinalIgnoreCase))
                 {
                     CurrentWord.AddSuccess();
-                    if (CurrentWord.RecentErrors <= 1)
+                    if (CurrentWord.RecentErrors <= 0)
                     {
                         if(HardWords.Contains(CurrentWord))
                         {
@@ -46,9 +46,13 @@ namespace JustTypeIt
                 else
                 {
                     CurrentWord.AddError();
-                    if(CurrentWord.RecentErrors > 1)
+
+                    if(CurrentWord.RecentErrors > 0)
                     {
-                        HardWords.Add(CurrentWord);
+                        if (!HardWords.Contains(CurrentWord))
+                        {
+                            HardWords.Add(CurrentWord);
+                        }
                     }
                     return false;
                 }
@@ -61,31 +65,31 @@ namespace JustTypeIt
             return false;
         }
 
-        public string GetNextWord()
+        public Word GetNextWord()
         {
             try
             {
-                if(HardWords.Count == 1 && (random.Next() % 2) == 0)
+                if(HardWords.Count == 1 && (random.Next() % 3) == 0)
                 {
                     CurrentWord = HardWords[0];
-                    return CurrentWord.OriginalWord;
+                    return CurrentWord;
                 }
                 else if (HardWords.Count > 1 && (random.Next() % 2) == 0)
                 {
                     int index = random.Next(HardWords.Count);
                     CurrentWord = HardWords[index];
-                    return CurrentWord.OriginalWord;
+                    return CurrentWord;
                 }
                 else
                 {
                     int index = random.Next(Words.Count);
                     CurrentWord = Words[index];
-                    return CurrentWord.OriginalWord;
+                    return CurrentWord;
                 }
             }
             catch(Exception ex)
             {
-                return "#EXCEPTION#";
+                return null;
             }
         }
 

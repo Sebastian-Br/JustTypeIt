@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:JustTypeIt"
         mc:Ignorable="d"
         Title="Just TypeIt BETA" Height="600" Width="900">
-    <Grid>
+    <Grid Background="#FFC5C3C3">
         <Button x:Name="loadConfigButton" Content="Load Configuration" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Width="83" Margin="10,10,0,0" FontWeight="Normal" Click="Button_Click"/>
         <TextBox x:Name="WordTextBox" BorderThickness="1" IsReadOnly="True" HorizontalAlignment="Center" Height="51" Margin="0,74,0,0" TextWrapping="Wrap" Text="Word" VerticalAlignment="Top" Width="720" TextAlignment="Center" FontSize="30" FontWeight="Normal" Background="#FFFFE3E3"/>
         <TextBox x:Name="AnswerTextBox" BorderThickness="1" HorizontalAlignment="Center" Height="51" Margin="0,299,0,0" TextWrapping="Wrap" Text="Definition" VerticalAlignment="Top" Width="720" TextAlignment="Center" FontSize="30" FontWeight="Normal" Background="#FFE4E3FF" KeyDown="AnswerTextBox_KeyDown"/>
         <TextBox x:Name="CorrectAnswerTextBox" BorderThickness="1" HorizontalAlignment="Center" Height="51" Margin="0,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="720" TextAlignment="Center" FontSize="30" FontWeight="Normal" Background="#FFCACACA" IsReadOnly="True"/>
+        <TextBlock x:Name="RecentErrorsBlock" HorizontalAlignment="Left" Margin="815,74,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="15" TextAlignment="Center" FontWeight="Bold" FontSize="16"/>
     </Grid>
 </Window>

@@ -25,6 +25,7 @@ namespace JustTypeIt
         string ConfigurationFileContent = "";
 
         AllVocab allVocab = new AllVocab();
+        Word currentWord = new Word();
         private MediaPlayer mediaPlayer = new MediaPlayer();
         bool previousAttemptIncorrect = false;
         public MainWindow()
@@ -63,7 +64,8 @@ namespace JustTypeIt
                     {
                         loadConfigButton.Visibility = Visibility.Collapsed;
                         MessageBox.Show("Parsing successful.", ":)");
-                        WordTextBox.Text = allVocab.GetNextWord();
+                        currentWord = allVocab.GetNextWord();
+                        WordTextBox.Text = currentWord.OriginalWord;
                         AnswerTextBox.Text = "";
                     }
                 }
@@ -87,6 +89,16 @@ namespace JustTypeIt
                         {
                             CorrectAnswerTextBox.Visibility = Visibility.Hidden;
                         }
+                        RecentErrorsBlock.Text = currentWord.RecentErrors.ToString();
+                        if(currentWord.RecentErrors <= 0)
+                        {
+                            RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(1, 107, 1));
+                        }
+                        else
+                        {
+                            RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(161, 21, 0));
+                        }
+
                         AnswerTextBox.Background = new SolidColorBrush(Color.FromRgb(21, 84, 2));
                         mediaPlayer.Volume = 0.5;
                         mediaPlayer.Open(new Uri("otlichnо.mp3", UriKind.Relative));
@@ -94,7 +106,17 @@ namespace JustTypeIt
                         await Task.Delay(1000);
                         AnswerTextBox.Text = "";
                         AnswerTextBox.IsReadOnly = false;
-                        WordTextBox.Text = allVocab.GetNextWord();
+                        currentWord =  allVocab.GetNextWord();
+                        WordTextBox.Text = currentWord.OriginalWord;
+                        RecentErrorsBlock.Text = currentWord.RecentErrors.ToString();
+                        if(currentWord.RecentErrors <= 0)
+                        {
+                            RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(1, 107, 1));
+                        }
+                        else
+                        {
+                            RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(161, 21, 0));
+                        }
                         AnswerTextBox.Background = new SolidColorBrush(Color.FromRgb(2, 43, 117));
                     }
                     else
@@ -106,6 +128,8 @@ namespace JustTypeIt
 
                         mediaPlayer.Open(new Uri("sadtrombone.mp3", UriKind.Relative));
                         mediaPlayer.Play();
+                        RecentErrorsBlock.Text = currentWord.RecentErrors.ToString();
+                        RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(161, 21, 0));
                         await Task.Delay(1000);
                         AnswerTextBox.Background = new SolidColorBrush(Color.FromRgb(161, 21, 21));
                         CorrectAnswerTextBox.Text = allVocab.CurrentWord.Definition;
