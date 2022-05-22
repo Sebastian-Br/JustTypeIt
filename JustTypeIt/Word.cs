@@ -13,11 +13,18 @@ namespace JustTypeIt
             RecentErrorsMax = 3;
             OriginalWord = "";
             Definition = "";
+            DefinitionGeneralized = "";
             RecentErrors = 0;
         }
 
         public string OriginalWord { get; set; }
         public string Definition { get; set; }
+
+        /// <summary>
+        /// Removes leading/trailing spaces, as well as spaces surrounding commata.
+        /// Intended to make string-comparison more forgiving.
+        /// </summary>
+        public string DefinitionGeneralized { get; set; }
 
         public int RecentErrors { get; set; }
 

@@ -30,7 +30,9 @@ namespace JustTypeIt
         {
             try
             {
-                if(String.Equals(CurrentWord.Definition, studentAnswer, StringComparison.OrdinalIgnoreCase))
+                string studentAnswerGeneralized = studentAnswer.Trim();
+                studentAnswerGeneralized = GenericString.RemoveSpacesAroundCommata(studentAnswerGeneralized);
+                if (String.Equals(CurrentWord.DefinitionGeneralized, studentAnswerGeneralized, StringComparison.OrdinalIgnoreCase))
                 {
                     CurrentWord.AddSuccess();
                     if (CurrentWord.RecentErrors <= 0)
@@ -114,6 +116,8 @@ namespace JustTypeIt
                             Word newWord = new();
                             newWord.OriginalWord = match.Groups["word"].Value;
                             newWord.Definition = match.Groups["definition"].Value;
+                            newWord.DefinitionGeneralized = newWord.Definition.Trim();
+                            newWord.DefinitionGeneralized = GenericString.RemoveSpacesAroundCommata(newWord.DefinitionGeneralized);
                             char lastChar = newWord.Definition[newWord.Definition.Length - 1];
                             if (!(Char.IsSeparator(lastChar) || Char.IsLetterOrDigit(lastChar)))
                             {
