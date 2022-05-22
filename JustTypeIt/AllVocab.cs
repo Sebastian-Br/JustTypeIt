@@ -59,7 +59,7 @@ namespace JustTypeIt
                 else
                 {
                     CurrentWord.AddError();
-                    if(!CurrentWord.IsWellKnown())
+                    if(!CurrentWord.IsWellKnown()) // i.e. word is no longer an easy word. False is also the default.
                     {
                         if (EasyWords.Contains(CurrentWord))
                         {
@@ -67,13 +67,17 @@ namespace JustTypeIt
                         }
                     }
 
-                    if(CurrentWord.RecentErrors > 0)
+                    if (!EasyWords.Contains(CurrentWord))
                     {
-                        if (!HardWords.Contains(CurrentWord))
+                        if (CurrentWord.RecentErrors > 0)
                         {
-                            HardWords.Add(CurrentWord);
+                            if (!HardWords.Contains(CurrentWord))
+                            {
+                                HardWords.Add(CurrentWord);
+                            }
                         }
                     }
+
                     return false;
                 }
             }
@@ -178,6 +182,21 @@ namespace JustTypeIt
             }
 
             return false;
+        }
+
+        public int GetHardWordCount()
+        {
+            return HardWords.Count;
+        }
+
+        public int GetEasyWordCount()
+        {
+            return EasyWords.Count;
+        }
+
+        public double GetEasyWordsPercentage()
+        {
+            return 100* (double) EasyWords.Count / Words.Count;
         }
 
         private Random random;

@@ -41,12 +41,9 @@ namespace JustTypeIt
             {
                 if(AllTimeINCorrectAnswers == 0 && AllTimeCorrectAnswers > 2) { return true; }
             }
-            else
+            else if (AllTimeCorrectAnswers * 5 >= AllTimeINCorrectAnswers)
             {
-                if(AllTimeCorrectAnswers * 5 >= AllTimeINCorrectAnswers)
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;

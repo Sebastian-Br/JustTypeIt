@@ -6,11 +6,19 @@
         xmlns:local="clr-namespace:JustTypeIt"
         mc:Ignorable="d"
         Title="Just TypeIt BETA" Height="600" Width="900">
-    <Grid Background="#FFC5C3C3">
+    <Grid Background="#FFA9A8A8">
         <Button x:Name="loadConfigButton" Content="Load Configuration" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Width="83" Margin="10,10,0,0" FontWeight="Normal" Click="Button_Click"/>
         <TextBox x:Name="WordTextBox" BorderThickness="3,3,3,3" IsReadOnly="True" HorizontalAlignment="Center" Height="51" Margin="0,74,0,0" TextWrapping="Wrap" Text="Word" VerticalAlignment="Top" Width="720" TextAlignment="Center" FontSize="30" FontWeight="Normal" Background="#FFFFE3E3"/>
         <TextBox x:Name="AnswerTextBox" BorderThickness="1" HorizontalAlignment="Center" Height="51" Margin="0,299,0,0" TextWrapping="Wrap" Text="Definition" VerticalAlignment="Top" Width="720" TextAlignment="Center" FontSize="30" FontWeight="Normal" Background="#FFE4E3FF" KeyDown="AnswerTextBox_KeyDown"/>
         <TextBox x:Name="CorrectAnswerTextBox" BorderThickness="1" HorizontalAlignment="Center" Height="51" Margin="0,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="720" TextAlignment="Center" FontSize="30" FontWeight="Normal" Background="#FFCACACA" IsReadOnly="True"/>
         <TextBlock x:Name="RecentErrorsBlock" HorizontalAlignment="Left" Margin="815,74,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="15" TextAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="671,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"><Run Text="Hard "/><Run Language="de-de" Text="Words:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="788,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"><Run Language="de-de" Text="Easy"/><Run Text=" "/><Run Text="Words:"/></TextBlock>
+        <TextBlock x:Name="HardWordCountBlock" HorizontalAlignment="Left" Margin="744,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="29"><Run Language="de-de" Text="0"/></TextBlock>
+        <TextBlock x:Name="EasyWordCountBlock" HorizontalAlignment="Left" Margin="856,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="29"><Run Language="de-de" Text="0"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="788,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"><Run Text="Easy"/><Run Text=" "/><Run Language="de-de" Text="%:"/></TextBlock>
+        <TextBlock x:Name="EasyWordPercentageBlock" HorizontalAlignment="Left" Margin="856,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="29"><Run Language="de-de" Text="0"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="671,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"><Run Language="de-de" Text="Total Words"/><Run Text=":"/></TextBlock>
+        <TextBlock x:Name="TotalWordCountBlock" HorizontalAlignment="Left" Margin="744,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="29"><Run Language="de-de" Text="0"/></TextBlock>
     </Grid>
 </Window>

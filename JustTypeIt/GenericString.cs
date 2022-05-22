@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JustTypeIt
 {
-    internal class GenericString
+    internal static class GenericString
     {
         // use Trim() to remove leading/trailing whitespaces.
 
@@ -22,6 +22,12 @@ namespace JustTypeIt
             {
                 return input;
             }
+        }
+
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
     }
 }

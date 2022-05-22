@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,7 @@ namespace JustTypeIt
     public partial class MainWindow : Window
     {
         string ConfigurationFileContent = "";
+        Logger logger = LogManager.GetCurrentClassLogger();
 
         AllVocab allVocab = new AllVocab();
         Word currentWord = new Word();
@@ -67,6 +69,7 @@ namespace JustTypeIt
                         currentWord = allVocab.GetNextWord();
                         WordTextBox.Text = currentWord.OriginalWord;
                         AnswerTextBox.Text = "";
+                        TotalWordCountBlock.Text = allVocab.Words.Count.ToString();
                     }
                 }
             }
@@ -87,7 +90,11 @@ namespace JustTypeIt
 
                     if (allVocab.Check(AnswerTextBox.Text))
                     { // correct answer
-                        if(CorrectAnswerTextBox.Visibility == Visibility.Visible)
+                        HardWordCountBlock.Text = allVocab.GetHardWordCount().ToString();
+                        EasyWordCountBlock.Text = allVocab.GetEasyWordCount().ToString();
+                        EasyWordPercentageBlock.Text = allVocab.GetEasyWordsPercentage().ToString().Truncate(5);
+
+                        if (CorrectAnswerTextBox.Visibility == Visibility.Visible)
                         {
                             CorrectAnswerTextBox.Visibility = Visibility.Hidden;
                         }
@@ -111,7 +118,8 @@ namespace JustTypeIt
                         currentWord =  allVocab.GetNextWord();
                         WordTextBox.Text = currentWord.OriginalWord;
                         RecentErrorsBlock.Text = currentWord.RecentErrors.ToString();
-                        if(currentWord.RecentErrors <= 0)
+
+                        if (currentWord.RecentErrors <= 0)
                         {
                             RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(1, 107, 1));
                         }
@@ -136,7 +144,12 @@ namespace JustTypeIt
                     }
                     else
                     { // incorrect answer
-                        if(previousAttemptIncorrect == false)
+                        HardWordCountBlock.Text = allVocab.GetHardWordCount().ToString();
+                        logger.Info("INCORRECT: allVocab.GetHardWordCount().ToString(): " + allVocab.GetHardWordCount().ToString());
+                        EasyWordCountBlock.Text = allVocab.GetEasyWordCount().ToString();
+                        EasyWordPercentageBlock.Text = allVocab.GetEasyWordsPercentage().ToString();
+
+                        if (previousAttemptIncorrect == false) // unused variable??
                         {
                             previousAttemptIncorrect = true;
                         }
