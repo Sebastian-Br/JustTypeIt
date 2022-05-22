@@ -15,6 +15,8 @@ namespace JustTypeIt
             Definition = "";
             DefinitionGeneralized = "";
             RecentErrors = 0;
+            AllTimeCorrectAnswers = 0;
+            AllTimeINCorrectAnswers = 0;
         }
 
         public string OriginalWord { get; set; }
@@ -30,9 +32,30 @@ namespace JustTypeIt
 
         private int RecentErrorsMax { get; set; }
 
+        private int AllTimeCorrectAnswers { get; set; }
+        private int AllTimeINCorrectAnswers { get; set; }
+
+        public bool IsWellKnown()
+        {
+            if(AllTimeINCorrectAnswers + AllTimeCorrectAnswers <= 4)
+            {
+                if(AllTimeINCorrectAnswers == 0 && AllTimeCorrectAnswers > 2) { return true; }
+            }
+            else
+            {
+                if(AllTimeCorrectAnswers * 5 >= AllTimeINCorrectAnswers)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void AddError()
         {
             RecentErrors += 2;
+            AllTimeINCorrectAnswers++;
             if (RecentErrors > RecentErrorsMax)
             {
                 RecentErrors = RecentErrorsMax;
@@ -42,6 +65,7 @@ namespace JustTypeIt
         public void AddSuccess()
         {
             RecentErrors--;
+            AllTimeCorrectAnswers++;
             if (RecentErrors < 0)
             {
                 RecentErrors = 0;

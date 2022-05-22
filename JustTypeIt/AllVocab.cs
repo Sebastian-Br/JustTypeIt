@@ -17,11 +17,14 @@ namespace JustTypeIt
             Words = new();
             HardWords = new();
             RecentWord = new();
+            EasyWords = new();
             random = new();
         }
         public List<Word> Words { get; set; }
 
         public List<Word> HardWords { get; set; }
+
+        public List<Word> EasyWords { get; set; }
 
         public Word RecentWord { get; set; }
         public Word CurrentWord { get; set; }
@@ -35,6 +38,14 @@ namespace JustTypeIt
                 if (String.Equals(CurrentWord.DefinitionGeneralized, studentAnswerGeneralized, StringComparison.OrdinalIgnoreCase))
                 {
                     CurrentWord.AddSuccess();
+                    if(CurrentWord.IsWellKnown())
+                    {
+                        if(!EasyWords.Contains(CurrentWord))
+                        {
+                            EasyWords.Add(CurrentWord);
+                        }
+                    }
+
                     if (CurrentWord.RecentErrors <= 0)
                     {
                         if(HardWords.Contains(CurrentWord))
@@ -48,6 +59,13 @@ namespace JustTypeIt
                 else
                 {
                     CurrentWord.AddError();
+                    if(!CurrentWord.IsWellKnown())
+                    {
+                        if (EasyWords.Contains(CurrentWord))
+                        {
+                            EasyWords.Remove(CurrentWord);
+                        }
+                    }
 
                     if(CurrentWord.RecentErrors > 0)
                     {
@@ -71,7 +89,7 @@ namespace JustTypeIt
         {
             try
             {
-                if(HardWords.Count == 1 && (random.Next() % 3) == 0)
+                if(HardWords.Count == 1 && (random.Next() % 2) == 0)
                 {
                     CurrentWord = HardWords[0];
                     return CurrentWord;
@@ -84,13 +102,28 @@ namespace JustTypeIt
                 }
                 else
                 {
-                    int index = random.Next(Words.Count);
-                    CurrentWord = Words[index];
+                    int reroll_times = 1;
+
+                    for(int i = 0; i < reroll_times; i++)
+                    {
+                        int index = random.Next(Words.Count);
+                        CurrentWord = Words[index];
+                        if (EasyWords.Contains((Word)CurrentWord))
+                        {
+                            //reroll
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
                     return CurrentWord;
                 }
             }
             catch(Exception ex)
             {
+                logger.Error(ex);
                 return null;
             }
         }

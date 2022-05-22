@@ -83,8 +83,10 @@ namespace JustTypeIt
                 if (allVocab.Words.Count > 0)
                 {
                     AnswerTextBox.IsReadOnly = true;
+
+
                     if (allVocab.Check(AnswerTextBox.Text))
-                    { // correct
+                    { // correct answer
                         if(CorrectAnswerTextBox.Visibility == Visibility.Visible)
                         {
                             CorrectAnswerTextBox.Visibility = Visibility.Hidden;
@@ -118,9 +120,22 @@ namespace JustTypeIt
                             RecentErrorsBlock.Background = new SolidColorBrush(Color.FromRgb(161, 21, 0));
                         }
                         AnswerTextBox.Background = new SolidColorBrush(Color.FromRgb(2, 43, 117));
+
+                        if (currentWord.IsWellKnown())
+                        {
+                            WordTextBox.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
+                        }
+                        else if(currentWord.RecentErrors >= 2)
+                        {
+                            WordTextBox.BorderBrush = new SolidColorBrush(Colors.Yellow);
+                        }
+                        else
+                        {
+                            WordTextBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+                        }
                     }
                     else
-                    { // incorrect
+                    { // incorrect answer
                         if(previousAttemptIncorrect == false)
                         {
                             previousAttemptIncorrect = true;
