@@ -1,0 +1,99 @@
+shout (past);кричать
+green;зелёный, зелёная, зелёное, зелёные
+smile;улыбка, ж, улыбки
+eye;глаз, м, глаза
+thin;худой, худая, худое, худые
+tall;высокий, высокая, высокое, высокие
+head;голова, ж, головы
+above, higher (adverb);выше
+to go, lead;вести
+best (adjective);лучший, лучшая, лучшее, лучшие
+year;год, м, года
+city;город, м, города
+clock (Sg.);часы
+hour;час, м, часы
+whole, entire;целый, целая, целое, целые
+often (adverb);часто
+to laugh;смеяться
+usually (adverb);обычно
+guy;парень, м, парни
+guys;ребята
+after;после
+team;команда, ж, команды
+on a team;в команде
+always;всегда
+forever;навсегда
+never;никогда
+cook;готовить
+to grow up;вырасти
+trainer (т);тренер, м, тренеры
+to dream (of);мечтать
+to become;стать
+sometimes;иногда
+to have lunch;обедать
+homework;домашнее задание, н, домашние задания
+to explain;объяснять
+complex, tricky;сложный, сложная, сложное, сложные
+task, problem, objective;задача, ж, задачи
+to teach;учить
+to learn;учиться
+especially (adv);особенно
+supermarket;супермаркет, м, супермаркеты
+to get (oneself somewhere);добираться
+to watch;смотреть
+subject, class, object of, topic, items;предмет, м, предметы
+cold (adjective);холодный, холодная, холодное, холодные
+hot (adjective);горячий, горячая, горячее, горячие
+senior, older, more experienced;старший, старшая, старшее, старшие
+dog;собака, ж, собаки
+cat (-т);кот, м, кошки
+village;деревня, ж, деревни
+to get up, stand up;встать
+chair;стул, м, стулья
+table (с);стол, м, столы
+bed;кровать, ж, кровати
+before, earlier (adverb);раньше
+early (adverb);рано
+doctor (д);доктор, м, доктора
+breakfast;завтрак, м, завтраки
+to love it (о);обожать
+oatmeal (2, о, о к) plurals are the same;овсянка, ж, овсяная каша, ж
+gather, assemble;собираться
+second;второй, вторая, второе, вторые
+the other;другой, другая, другое, другие
+another;ещё один, одна, одно, одни
+come, show up (п);приходить
+then;потом
+to dine, have dinner, eat;ужинать
+garden, vegetable garden;огород, м, огороды
+to grow, cultivate, breed;выращивать
+vegetable;овощ, м, овощи
+fruit;фрукт, м, фрукты
+to go, walk (х);ходить
+age;возраст, м, возраста
+complain;жаловаться
+to meet, introduce;знакомиться
+husband;муж, м, мужья
+pet;домашнее животное, н, домашние животные
+to drive;ездить
+to come/arrive by car;приезжать
+to be dressed in;одевать
+long;длинный, длинная, длинное, длинные
+black;чёрный, чёрная, чёрное, чёрные
+skirt;юбка, ж, юбки
+sweater;кофта, ж, кофты
+to wear;носить
+earring;серьга, ж, серёжка
+gift, present;подарок, м, подарки
+attentively (adverb);внимательно
+comprehensibly, understandably(adverb);понятно
+to clean;убирать
+to vacume;пылесосить
+dinner;ужин, м, ужины
+to bathe;купаться
+to read;читать
+lay down;ложиться
+to sit down;садиться
+to check;проверять
+to relax;отдыхать
+to use;использовать

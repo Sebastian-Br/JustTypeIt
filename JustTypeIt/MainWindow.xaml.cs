@@ -109,7 +109,7 @@ namespace JustTypeIt
                         }
 
                         AnswerTextBox.Background = new SolidColorBrush(Color.FromRgb(21, 84, 2));
-                        mediaPlayer.Volume = 0.5;
+                        mediaPlayer.Volume = 0.75;
                         mediaPlayer.Open(new Uri("otlichnо.mp3", UriKind.Relative));
                         mediaPlayer.Play();
                         await Task.Delay(1000);
@@ -145,15 +145,14 @@ namespace JustTypeIt
                     else
                     { // incorrect answer
                         HardWordCountBlock.Text = allVocab.GetHardWordCount().ToString();
-                        logger.Info("INCORRECT: allVocab.GetHardWordCount().ToString(): " + allVocab.GetHardWordCount().ToString());
                         EasyWordCountBlock.Text = allVocab.GetEasyWordCount().ToString();
-                        EasyWordPercentageBlock.Text = allVocab.GetEasyWordsPercentage().ToString();
+                        EasyWordPercentageBlock.Text = allVocab.GetEasyWordsPercentage().ToString().Truncate(5);
 
                         if (previousAttemptIncorrect == false) // unused variable??
                         {
                             previousAttemptIncorrect = true;
                         }
-
+                        mediaPlayer.Volume = 0.5;
                         mediaPlayer.Open(new Uri("sadtrombone.mp3", UriKind.Relative));
                         mediaPlayer.Play();
                         RecentErrorsBlock.Text = currentWord.RecentErrors.ToString();

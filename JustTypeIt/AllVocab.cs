@@ -106,23 +106,19 @@ namespace JustTypeIt
                 }
                 else
                 {
-                    int reroll_times = 1;
-
-                    for(int i = 0; i < reroll_times; i++)
+                    List<Word> NormalDifficultyWords = Words.Where(word => !word.IsWellKnown()).ToList();
+                    if(random.Next(32) % 4 >= 2) // 3/4 chance to NOT choose an easy word!
+                    {
+                        int index = random.Next(NormalDifficultyWords.Count);
+                        CurrentWord = NormalDifficultyWords[index];
+                        return CurrentWord;
+                    }
+                    else // 1/4 chance to choose any word
                     {
                         int index = random.Next(Words.Count);
                         CurrentWord = Words[index];
-                        if (EasyWords.Contains((Word)CurrentWord))
-                        {
-                            //reroll
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        return CurrentWord;
                     }
-
-                    return CurrentWord;
                 }
             }
             catch(Exception ex)

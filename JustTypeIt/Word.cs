@@ -39,9 +39,9 @@ namespace JustTypeIt
         {
             if(AllTimeINCorrectAnswers + AllTimeCorrectAnswers <= 4)
             {
-                if(AllTimeINCorrectAnswers == 0 && AllTimeCorrectAnswers > 2) { return true; }
+                if(AllTimeINCorrectAnswers == 0 && AllTimeCorrectAnswers >= 2) { return true; }
             }
-            else if (AllTimeCorrectAnswers * 5 >= AllTimeINCorrectAnswers)
+            else if (AllTimeCorrectAnswers * 4 >= AllTimeINCorrectAnswers)
             {
                 return true;
             }
