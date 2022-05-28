@@ -41,7 +41,7 @@ namespace JustTypeIt
             {
                 if(AllTimeINCorrectAnswers == 0 && AllTimeCorrectAnswers >= 2) { return true; }
             }
-            else if (AllTimeCorrectAnswers * 4 >= AllTimeINCorrectAnswers)
+            else if (AllTimeCorrectAnswers >= 3 * AllTimeINCorrectAnswers)
             {
                 return true;
             }

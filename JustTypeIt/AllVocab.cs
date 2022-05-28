@@ -93,7 +93,7 @@ namespace JustTypeIt
         {
             try
             {
-                if(HardWords.Count == 1 && (random.Next() % 2) == 0)
+                if(HardWords.Count == 1 && (random.Next() % 3) == 0)
                 {
                     CurrentWord = HardWords[0];
                     return CurrentWord;
