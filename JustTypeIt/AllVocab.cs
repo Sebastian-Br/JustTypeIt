@@ -100,23 +100,23 @@ namespace JustTypeIt
                 }
                 else if (HardWords.Count > 1 && (random.Next() % 2) == 0)
                 {
-                    int index = random.Next(HardWords.Count);
-                    CurrentWord = HardWords[index];
+                    int hardWordIndex = random.Next(HardWords.Count);
+                    CurrentWord = HardWords[hardWordIndex];
                     return CurrentWord;
                 }
                 else
                 {
                     List<Word> NormalDifficultyWords = Words.Where(word => !word.IsWellKnown()).ToList();
-                    if(random.Next(32) % 4 >= 2) // 3/4 chance to NOT choose an easy word!
+                    if(NormalDifficultyWords.Count >= 1 && random.Next(32) % 4 >= 2) // 3/4 chance to choose а word that is not easy
                     {
-                        int index = random.Next(NormalDifficultyWords.Count);
-                        CurrentWord = NormalDifficultyWords[index];
+                        int nonEasyWordIndex = random.Next(NormalDifficultyWords.Count);
+                        CurrentWord = NormalDifficultyWords[nonEasyWordIndex];
                         return CurrentWord;
                     }
                     else // 1/4 chance to choose any word
                     {
-                        int index = random.Next(Words.Count);
-                        CurrentWord = Words[index];
+                        int anyWordIndex = random.Next(Words.Count);
+                        CurrentWord = Words[anyWordIndex];
                         return CurrentWord;
                     }
                 }

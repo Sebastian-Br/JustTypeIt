@@ -1,0 +1,51 @@
+man;мужчина, м, мужчины
+woman;женщина, ж, женщины
+to go into, to enter;заходить
+house;дом, м, дома
+to buy;покупать
+flower;цветок, м, цветы
+school;школа, ж, школы
+at home;дома
+to go (и);идти
+friend (male);друг, м, друзья
+friend (female);подруга, ж, подруги
+my;мой, моя, моё, мои
+to say (с);сказать
+to want;хотеть
+father;отец, м, отцы
+mother;мать, ж, матери
+parent;родитель, м, родители
+back (-wards);назад
+to go (по);пойти
+rarely;редко
+rare;редкий, редкая, редкое, редкие
+to see;видеть
+when;когда
+who;кто
+where;где
+how;как
+this, these;этот, эта, это, эти
+, too;тоже
+something;что-то
+music (Sg.);музыка, ж
+art (Sg.);искусство, н
+food (Sg.);еда, ж
+time;время, н, времена
+children;дети
+child(Sg.);ребёнок, м
+Germany;Германия, ж
+Russia;Россия, ж
+America (2, А, С);Америка, ж, США
+today;сегодня
+tomorrow;завтра
+yesterday;вчера
+to be late;опоздать
+many;много, многие, многие, множество
+to like;нравиться
+to love;любить
+to eat;есть
+book;книга, ж, книги
+teacher (male);учитель, м, учителя
+teacher (female);учительница, ж, учительницы
+neighbor (male);сосед, м, соседи
+neighbor (female);соседка, ж, соседки
